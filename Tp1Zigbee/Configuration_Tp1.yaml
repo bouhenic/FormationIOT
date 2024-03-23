@@ -1,0 +1,25 @@
+homeassistant: false
+permit_join: false
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://localhost
+serial:
+  port: /dev/ttyUSB0
+frontend: true
+advanced:
+  log_output:
+    - console
+# mettre 675X ou X est le numéro du groupe
+  pan_id: 6755
+device_options:
+  legacy: false
+blocklist:
+  - '0xa4c1381520886a8c'
+  - '0xa4c138fcfcd1ab05'
+  - '0x90fd9ffffe14c33d'
+  - '0x000d6ffffe16ec06'
+  - '0xa4c138de63548d15'
+  - '0xd0cf5efffe18cb8c'
+  - '0xa4c1389c73550ed1'
+  - '0x90fd9ffffe193cfc'
+devices: {}
