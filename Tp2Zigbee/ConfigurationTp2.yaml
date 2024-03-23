@@ -16,9 +16,8 @@ device_options:
 blocklist:
   - '0xa4c138c35298bc87'
   - '0xa4c138a82a64f6f2'
-  - '0x90fd9ffffe14c33d'
-  - '0x000d6ffffe16ec06'
-  - '0xa4c138de63548d15'
+  - '0xa4c1381520886a8c'
+  - '0xa4c138fcfcd1ab05'
   - '0xd0cf5efffe18cb8c'
   - '0xa4c1389c73550ed1'
   - '0x90fd9ffffe193cfc'
