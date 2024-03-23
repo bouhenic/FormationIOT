@@ -10,7 +10,7 @@ advanced:
   log_output:
     - console
 # mettre 675X ou X est le numéro du groupe
-  pan_id: 6755
+  pan_id: 6752
 device_options:
   legacy: false
 blocklist:
