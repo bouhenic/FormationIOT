@@ -1,7 +1,7 @@
 #include "LoRaWan_APP.h"
 #include "Arduino.h"
 #include <Wire.h>
-#include "HT_SSD1306Wire.h" // Assurez-vous d'utiliser la bibliothèque correcte pour l'OLED
+#include "HT_SSD1306Wire.h" // bibliothèque pour l'OLED
 
 // Configuration de l'affichage OLED
 SSD1306Wire oleddisplay(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED);
