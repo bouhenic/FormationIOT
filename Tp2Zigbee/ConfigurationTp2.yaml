@@ -11,6 +11,7 @@ advanced:
     - console
 # mettre 675X ou X est le numéro du groupe
   pan_id: 6753
+  channel: 13
 device_options:
   legacy: false
 blocklist:
