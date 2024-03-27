@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT Client Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+</head>
+<body>
+    <h2>MQTT over WebSockets Demo</h2>
+    <div id="messages">
+        <h3>Messages</h3>
+        <!-- Utiliser un élément p pour afficher le dernier message -->
+        <p id="lastMessage">Waiting for messages...</p>
+    </div>
+    <script>
+      var client;
+      function onConnect() {
+        console.log("onConnect");
+        client.subscribe("your/topic");
+        // Supprimer la publication automatique d'un message pour éviter la confusion
+      }
+
+      function MQTTconnect() {
+        client = new Paho.MQTT.Client("192.168.5.48", 9001, "clientId");
+        client.onConnectionLost = onConnectionLost;
+        client.onMessageArrived = onMessageArrived;
+        client.connect({onSuccess:onConnect, useSSL: false});
+      }
+
+      function onConnectionLost(responseObject) {
+        if (responseObject.errorCode !== 0) {
+          console.log("onConnectionLost:"+responseObject.errorMessage);
+          // Mettre à jour le texte pour indiquer que la connexion a été perdue
+          document.getElementById("lastMessage").textContent = "Connection Lost: " + responseObject.errorMessage;
+        }
+      }
+
+      function onMessageArrived(message) {
+        console.log("onMessageArrived:"+message.payloadString);
+        // Simplement mettre à jour le texte de l'élément p avec le nouveau message
+        document.getElementById("lastMessage").textContent = message.payloadString;
+      }
+
+      window.onload = MQTTconnect;
+    </script>
+</body>
+</html>
