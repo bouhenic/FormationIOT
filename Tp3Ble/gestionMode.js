@@ -5,6 +5,6 @@ flow.set('mode', mode);
 
 // Exemple pour récupérer une valeur du contexte du flux
 let valeur = flow.get('mode');
-if (valeur == true) { msg.payload = "MANUEL"; }
-else msg.payload="AUTOMATIQUE";
+if (valeur == false) { msg.payload = "AUTOMATIQUE"; }
+else msg.payload="MANUEL";
 return msg;
