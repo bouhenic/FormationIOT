@@ -5,11 +5,11 @@
 
 SSD1306Wire  oledDisplay(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED); // addr , freq , i2c group , resolution , rst
 
-#define BINOME NUMERO_BINOME
-#define RF_FREQUENCY                                FREQUENCE // Hz
+#define BINOME //NUMERO_BINOME
+#define RF_FREQUENCY                                //FREQUENCE // Hz
 #define TX_OUTPUT_POWER                             5        // dBm
 #define LORA_BANDWIDTH                              0
-#define LORA_SPREADING_FACTOR                       VALEUR_SF
+#define LORA_SPREADING_FACTOR                       //VALEUR_SF
 #define LORA_CODINGRATE                             1
 #define LORA_PREAMBLE_LENGTH                        8
 #define LORA_SYMBOL_TIMEOUT                         0
