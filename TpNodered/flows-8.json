@@ -1,0 +1,759 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2e31100edffd4f6c",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d175823496f43be6",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "true",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "372ee5bbb70ffb0b",
+        "type": "ui_tab",
+        "name": "HORLOGE",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2d0a50b10a55619c",
+        "type": "ui_group",
+        "name": "Météo",
+        "tab": "372ee5bbb70ffb0b",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fc15f2643ecb1350",
+        "type": "ui_spacer",
+        "z": "f6f2187d.f17ca8",
+        "name": "spacer",
+        "group": "2d0a50b10a55619c",
+        "order": 2,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "a61371c214c115f6",
+        "type": "ui_spacer",
+        "z": "f6f2187d.f17ca8",
+        "name": "spacer",
+        "group": "2d0a50b10a55619c",
+        "order": 4,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3ae581bc61ab098b",
+        "type": "moment",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Paris",
+        "adjAmount": "",
+        "adjType": "hours",
+        "adjDir": "add",
+        "format": "D MMMM YYYY",
+        "locale": "fr",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "cc1ab1c7c6470c3a"
+            ]
+        ]
+    },
+    {
+        "id": "afc33bf06ed093c1",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "timer 1s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "3ae581bc61ab098b",
+                "c7b90a6e0e97adc4"
+            ]
+        ]
+    },
+    {
+        "id": "c7b90a6e0e97adc4",
+        "type": "moment",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Paris",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "kk:mm:ss",
+        "locale": "fr",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 480,
+        "y": 340,
+        "wires": [
+            [
+                "40b051dacc1661d8"
+            ]
+        ]
+    },
+    {
+        "id": "cc1ab1c7c6470c3a",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "group": "2d0a50b10a55619c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Clichy",
+        "format": "<font color=white>{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "32",
+        "color": "#96d35f",
+        "x": 770,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "40b051dacc1661d8",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "group": "2d0a50b10a55619c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "<font color=yellow>{{msg.payload}}",
+        "layout": "row-center",
+        "className": "horloge",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 770,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "30edfb499e305135",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "group": "2d0a50b10a55619c",
+        "name": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .horloge{\n        font-size: 7em;\n    }\n    .date{\n        font-size: 2em;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dcb89bbb94644d4b",
+        "type": "openweathermap",
+        "z": "f6f2187d.f17ca8",
+        "name": "Clichy",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Clichy",
+        "country": "France",
+        "language": "fr",
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "f162b0a09b564b4e",
+                "4bd074c218b91382",
+                "2458a2d6b1e9b427",
+                "da658a0d4e3a2e56",
+                "b664ccb59625469b",
+                "a82d08be914c5b51"
+            ]
+        ]
+    },
+    {
+        "id": "7ef72a265f325cd5",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "dcb89bbb94644d4b"
+            ]
+        ]
+    },
+    {
+        "id": "f162b0a09b564b4e",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 560,
+        "wires": [
+            [
+                "bbcf2485492f0544"
+            ]
+        ]
+    },
+    {
+        "id": "4bd074c218b91382",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 640,
+        "wires": [
+            [
+                "46df83e41ed5849c"
+            ]
+        ]
+    },
+    {
+        "id": "2458a2d6b1e9b427",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pressure",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 720,
+        "wires": [
+            [
+                "280d27f1de85a152"
+            ]
+        ]
+    },
+    {
+        "id": "da658a0d4e3a2e56",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.detail",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 840,
+        "wires": [
+            [
+                "f3e73694afb55a6a"
+            ]
+        ]
+    },
+    {
+        "id": "f3e73694afb55a6a",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "group": "2d0a50b10a55619c",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "date",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1070,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "280d27f1de85a152",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "2d0a50b10a55619c",
+        "order": 8,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Pression",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": "900",
+        "max": "1050",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "46df83e41ed5849c",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "2d0a50b10a55619c",
+        "order": 7,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Humidité",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "bbcf2485492f0544",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "2d0a50b10a55619c",
+        "order": 6,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Température",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "b664ccb59625469b",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.sunrise",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 1040,
+        "wires": [
+            [
+                "0d92cc98971a336b"
+            ]
+        ]
+    },
+    {
+        "id": "1497ca2cf5f918ce",
+        "type": "moment",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Paris",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "kk:mm",
+        "locale": "fr",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 800,
+        "y": 1040,
+        "wires": [
+            [
+                "371c410735e4cb46"
+            ]
+        ]
+    },
+    {
+        "id": "371c410735e4cb46",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "group": "2d0a50b10a55619c",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Levé du soleil :",
+        "format": "<font color=#33A8FF>{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "date",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#ff4013",
+        "x": 1100,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "a82d08be914c5b51",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.sunset",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 1300,
+        "wires": [
+            [
+                "5813860c0a0a2a1d"
+            ]
+        ]
+    },
+    {
+        "id": "65a5cd8854135343",
+        "type": "moment",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Paris",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "kk:mm",
+        "locale": "fr",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 780,
+        "y": 1300,
+        "wires": [
+            [
+                "762e714e13dc7da7"
+            ]
+        ]
+    },
+    {
+        "id": "762e714e13dc7da7",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "group": "2d0a50b10a55619c",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Couché du soleil :",
+        "format": "<font color=#33A8FF>{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "date",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#0056d6",
+        "x": 1090,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "5813860c0a0a2a1d",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 1",
+        "func": "// Si le timestamp est en secondes, convertissez-le en millisecondes\nmsg.payload = msg.payload * 1000;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1300,
+        "wires": [
+            [
+                "65a5cd8854135343"
+            ]
+        ]
+    },
+    {
+        "id": "0d92cc98971a336b",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 2",
+        "func": "msg.payload=msg.payload*1000;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1040,
+        "wires": [
+            [
+                "1497ca2cf5f918ce"
+            ]
+        ]
+    }
+]
