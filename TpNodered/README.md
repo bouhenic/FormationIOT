@@ -43,7 +43,6 @@ Ce projet consiste à créer un tableau de bord interactif affichant la date, l'
 1. Créer un compte OpenWeatherMap :
    - Suivre les instructions sur [OpenWeatherMap](https://openweathermap.org)
    - Obtenir une clé API
-   - Note : En cas de délai pour l'obtention de la clé, utiliser : `ebf8764652e8aa99e8f3f355eb84e6a6`
 
 2. Configurer le node OpenWeatherMap :
    - Insérer la clé API
