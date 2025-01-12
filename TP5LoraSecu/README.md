@@ -1,4 +1,4 @@
-# TP Communication LoRa Sécurisée
+# TP Communication LoRa Sécurisée, implantation du HMAC
 
 Ce TP permet d'explorer la communication sécurisée entre équipements LoRa en utilisant le chiffrement AES et l'authentification HMAC.
 
