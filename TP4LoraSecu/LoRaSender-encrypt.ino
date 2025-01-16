@@ -27,7 +27,7 @@ void setup() {
 
 void loop() {
   char message[] = "Hello LoRa!"; // Message à envoyer
-  byte encryptedMessage[16];     // Buffer pour le message chiffré
+  byte encryptedMessage[16]={0};     // Buffer pour le message chiffré
 
   // Initialisation de l'objet AES
   AES128 aesEncryptor;
