@@ -35,7 +35,7 @@ void setup() {
 
 void loop() {
     char message[] = "Hello LoRa!";      // Message à envoyer
-    byte encryptedMessage[16];          // Buffer pour le message chiffré
+    byte encryptedMessage[16]={0};          // Buffer pour le message chiffré
     byte hmac[32];                      // Buffer pour le HMAC calculé
 
     // Initialisation de l'objet AES
