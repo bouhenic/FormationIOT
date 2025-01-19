@@ -43,7 +43,7 @@ void loop() {
     byte receivedHMAC[8];        // Buffer pour les 8 premiers octets du HMAC reçu
     byte calculatedHMAC[32];     // Buffer pour le HMAC recalculé
     byte decryptedMessage[32];   // Buffer pour le message déchiffré
-    unsigned long receivedFrameCounter; // Compteur reçu
+    unsigned long receivedFrameCounter = 0; // Compteur reçu
 
     // Lire les données chiffrées (32 octets)
     for (int i = 0; i < 32; i++) {
@@ -76,16 +76,29 @@ void loop() {
       return; // Arrêter le traitement si le HMAC est incorrect
     }
 
-    // Déchiffrer les données
+    // Déchiffrer les données en deux blocs
     AES128 aesDecryptor;
     aesDecryptor.setKey(aesKey, sizeof(aesKey));
-    aesDecryptor.decryptBlock(decryptedMessage, encryptedMessage);
+    aesDecryptor.decryptBlock(decryptedMessage, encryptedMessage);       // Bloc 1
+    aesDecryptor.decryptBlock(decryptedMessage + 16, encryptedMessage + 16); // Bloc 2
+
+    // Afficher les données déchiffrées
+    Serial.print("Données déchiffrées : ");
+    for (int i = 0; i < 32; i++) {
+      Serial.print(decryptedMessage[i], HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
 
     // Extraire le compteur des 4 derniers octets du message déchiffré
     receivedFrameCounter = (decryptedMessage[28]) |
                            (decryptedMessage[29] << 8) |
                            (decryptedMessage[30] << 16) |
                            (decryptedMessage[31] << 24);
+
+    // Afficher le compteur reçu
+    Serial.print("Compteur extrait : ");
+    Serial.println(receivedFrameCounter);
 
     // Vérifier si le compteur reçu est valide (supérieur au dernier compteur reçu)
     if (receivedFrameCounter <= lastFrameCounter) {
@@ -100,8 +113,5 @@ void loop() {
     decryptedMessage[28] = '\0'; // Terminer le message avant le compteur
     Serial.print("Message déchiffré : ");
     Serial.println((char*)decryptedMessage);
-
-    Serial.print("Compteur reçu : ");
-    Serial.println(receivedFrameCounter);
   }
 }
