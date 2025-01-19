@@ -32,4 +32,5 @@ void loop() {
   LoRa.endPacket();
 
   delay(2000); // Attendre 2 secondes avant d'envoyer un nouveau message
+}
 
