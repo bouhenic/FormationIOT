@@ -38,24 +38,41 @@ void setup() {
 
 void loop() {
     char message[] = "Hello LoRa!"; // Message à envoyer
-    byte plainMessage[32];          // Message en clair incluant le compteur
+    byte plainMessage[32] = {0};    // Message en clair incluant le compteur
     byte encryptedMessage[32] = {0}; // Buffer pour le message chiffré
     byte hmac[32];                  // Buffer pour le HMAC calculé
 
-    // Construction du message avec le compteur
+    // Construction du message clair
     memset(plainMessage, 0, sizeof(plainMessage)); // Effacer le buffer
     memcpy(plainMessage, message, strlen(message)); // Copier le texte du message
-    plainMessage[strlen(message)] = frameCounter & 0xFF;           // Byte 0 du compteur
-    plainMessage[strlen(message) + 1] = (frameCounter >> 8) & 0xFF; // Byte 1
-    plainMessage[strlen(message) + 2] = (frameCounter >> 16) & 0xFF; // Byte 2
-    plainMessage[strlen(message) + 3] = (frameCounter >> 24) & 0xFF; // Byte 3
+    plainMessage[28] = frameCounter & 0xFF;           // Byte 0 du compteur
+    plainMessage[29] = (frameCounter >> 8) & 0xFF;    // Byte 1
+    plainMessage[30] = (frameCounter >> 16) & 0xFF;   // Byte 2
+    plainMessage[31] = (frameCounter >> 24) & 0xFF;   // Byte 3
+
+    // Afficher le message clair (avec compteur)
+    Serial.print("Message clair (avec compteur) : ");
+    for (int i = 0; i < 32; i++) {
+        Serial.print(plainMessage[i], HEX);
+        Serial.print(" ");
+    }
+    Serial.println();
 
     // Initialisation de l'objet AES
     AES128 aesEncryptor;
     aesEncryptor.setKey(aesKey, sizeof(aesKey));
 
-    // Chiffrement AES
-    aesEncryptor.encryptBlock(encryptedMessage, plainMessage);
+    // Chiffrement par blocs de 16 octets
+    aesEncryptor.encryptBlock(encryptedMessage, plainMessage);       // Bloc 1
+    aesEncryptor.encryptBlock(encryptedMessage + 16, plainMessage + 16); // Bloc 2
+
+    // Afficher le message chiffré
+    Serial.print("Message chiffré : ");
+    for (int i = 0; i < 32; i++) {
+        Serial.print(encryptedMessage[i], HEX);
+        Serial.print(" ");
+    }
+    Serial.println();
 
     // Calcul du HMAC
     HMAC::calculateHMAC(hmacKey, sizeof(hmacKey), encryptedMessage, sizeof(encryptedMessage), hmac);
@@ -70,14 +87,7 @@ void loop() {
     LoRa.write(payload, sizeof(payload));
     LoRa.endPacket();
 
-    // Affichage pour débogage
-    Serial.print("Message chiffré envoyé : ");
-    for (int i = 0; i < sizeof(encryptedMessage); i++) {
-        Serial.print(encryptedMessage[i], HEX);
-        Serial.print(" ");
-    }
-    Serial.println();
-
+    // Affichage du HMAC envoyé
     Serial.print("HMAC envoyé (8 octets) : ");
     for (int i = 0; i < 8; i++) {
         Serial.print(hmac[i], HEX);
@@ -92,3 +102,4 @@ void loop() {
     frameCounter++; // Incrémentation du compteur
     delay(2000);    // Pause avant d'envoyer un nouveau message
 }
+
