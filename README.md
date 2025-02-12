@@ -1,1 +1,55 @@
-IyBGb3JtYXRpb24gSW9UCgpDZXR0ZSBmb3JtYXRpb24gY291dnJlIGxlcyBhc3BlY3RzIGZvbmRhbWVudGF1eCBkZSBsJ0ludGVybmV0IGRlcyBPYmpldHMgKElvVCksIGVuIG1ldHRhbnQgbCdhY2NlbnQgc3VyIGxlcyBwcm90b2NvbGVzIGRlIGNvbW11bmljYXRpb24gc2FucyBmaWwgZXQgbGEgc8OpY3VyaXTDqS4KCiMjIFN0cnVjdHVyZSBkdSBjb3VycwoKIyMjIFByb2dyYW1tZSBwYXIgam91cm7DqWUKMS4gKipKb3VybsOpZSAxKiogOiBJbnRyb2R1Y3Rpb24gw6AgbCdJb1QKICAgLSBDb25jZXB0cyBmb25kYW1lbnRhdXgKICAgLSBBcmNoaXRlY3R1cmUgSW9UCiAgIC0gUHJlbWllcnMgcGFzIHByYXRpcXVlcwoKMi4gKipKb3VybsOpZSAyKiogOiBBcHByb2ZvbmRpc3NlbWVudAogICAtIFByb3RvY29sZXMgZGUgY29tbXVuaWNhdGlvbgogICAtIEFyY2hpdGVjdHVyZXMgYXZhbmPDqWVzCiAgIC0gRXhlcmNpY2VzIHByYXRpcXVlcwoKMy4gKipKb3VybsOpZSAzKiogOiBBcHBsaWNhdGlvbnMgcHJhdGlxdWVzCiAgIC0gTWlzZSBlbiBzaXR1YXRpb24KICAgLSBDYXMgZCd1c2FnZQogICAtIFByb2pldHMgcHJhdGlxdWVzCgojIyMgVHJhdmF1eCBQcmF0aXF1ZXMgU3DDqWNpYWxpc8OpcwoKIyMjIyBCbHVldG9vdGggTG93IEVuZXJneSAoQkxFKQotICoqVFAzIEJMRSoqIDogRMOpY291dmVydGUgZXQgbWFuaXB1bGF0aW9uIGR1IHByb3RvY29sZSBCbHVldG9vdGggTG93IEVuZXJneQogIC0gQ29uZmlndXJhdGlvbgogIC0gQ29tbXVuaWNhdGlvbgogIC0gU8OpY3VyaXNhdGlvbgoKIyMjIyBMb1JhIGV0IFPDqWN1cml0w6kKLSAqKlRQNCBMb1JhIFPDqWN1cml0w6kqKiA6IEludHJvZHVjdGlvbiDDoCBMb1JhIGV0IGFzcGVjdHMgc8OpY3VyaXTDqQotICoqVFA1IExvUmEgU8OpY3VyaXTDqSoqIDogQXBwcm9mb25kaXNzZW1lbnQgTG9SYSBldCBzw6ljdXJpdMOpIGF2YW5jw6llCi0gKipUUDYgTG9SYSBTw6ljdXJpdMkqKiA6IEFwcGxpY2F0aW9ucyBwcmF0aXF1ZXMgZXQgc8OpY3VyaXNhdGlvbiBjb21wbMOodGUKCiMjIFByw6lyZXF1aXMKLSBDb25uYWlzc2FuY2VzIGRlIGJhc2UgZW4gcsOpc2VhdXgKLSBOb3Rpb25zIGRlIHByb2dyYW1tYXRpb24KLSBNYXTDqXJpZWwgc3DDqWNpZmlxdWUgc2Vsb24gbGVzIFRQcwoKIyMgVGVjaG5vbG9naWVzIGFib3Jkw6llcwotIEJsdWV0b290aCBMb3cgRW5lcmd5IChCTEUpCi0gTG9SYVdBTgotIFPDqWN1cml0w6kgSW9UCi0gUHJvdG9jb2xlcyBkZSBjb21tdW5pY2F0aW9uIHNhbnMgZmlsCgojIyBPYmplY3RpZnMgcMOpZGFnb2dpcXVlcwotIENvbXByZW5kcmUgbCdhcmNoaXRlY3R1cmUgZGVzIHN5c3TDqG1lcyBJb1QKLSBNYcOudHJpc2VyIGxlcyBwcm90b2NvbGVzIGRlIGNvbW11bmljYXRpb24gc2FucyBmaWwKLSBBcHBsaXF1ZXIgbGVzIGJvbm5lcyBwcmF0aXF1ZXMgZGUgc8OpY3VyaXTDqQotIFLDqWFsaXNlciBkZXMgcHJvamV0cyBJb1Qgc8OpY3VyaXPDqXMKCiMjIFV0aWxpc2F0aW9uCkNoYXF1ZSBkb3NzaWVyIGNvbnRpZW50IGxlcyByZXNzb3VyY2VzIG7DqWNlc3NhaXJlcyBwb3VyIHN1aXZyZSBsYSBmb3JtYXRpb24gOgotIFN1cHBvcnQgZGUgY291cnMKLSBJbnN0cnVjdGlvbnMgZGVzIFRQcwotIENvZGUgc291cmNlIGV0IGV4ZW1wbGVzCi0gRG9jdW1lbnRhdGlvbiBjb21wbMOpbWVudGFpcmUKCi0tLQrCqSBGb3JtYXRpb24gSW9UIC0gVG91cyBkcm9pdHMgcsOpc2VydsOpcw==
+# Formation IoT (Internet of Things)
+
+Formation complète sur l'IoT couvrant les protocoles de communication, les plateformes de gestion et la sécurité.
+
+## Programme détaillé
+
+### Journée 1 : Introduction et MQTT
+- Introduction à l'IoT et ses concepts fondamentaux
+- Protocole MQTT
+  - Principes et architecture
+  - Implémentation et cas d'usage
+- Node-RED
+  - Introduction à la plateforme
+  - Développement de flux
+- Travaux Pratiques :
+  - TP MQTT : Mise en œuvre du protocole MQTT
+  - TP Node-RED : Création de tableaux de bord et automatisations
+
+### Journée 2 : Zigbee
+- Technologies sans fil pour l'IoT
+- Protocole Zigbee
+  - Architecture et principes
+  - Sécurité et topologie réseau
+- Travaux Pratiques :
+  - TP1 Zigbee : Configuration et mise en place d'un réseau Zigbee
+  - TP2 Zigbee : Communication et interactions entre devices
+
+### Journée 3 : LoRaWAN
+- Technologie LoRa et protocole LoRaWAN
+  - Principes fondamentaux
+  - Architecture réseau
+  - Sécurité et performances
+- Plateformes LoRaWAN
+- Travaux Pratiques :
+  - TP1 TTN : Configuration The Things Network
+  - TP2 ChirpStack : Déploiement d'une infrastructure LoRaWAN privée
+  - TP3 LoRa2LoRa : Communication directe entre appareils LoRa
+
+## Supports de cours
+- Présentations théoriques au format PDF/PPTX
+- Guides de TPs détaillés
+- Exemples de code et configurations
+
+## Prérequis techniques
+- Connaissances en réseaux TCP/IP
+- Notions de protocoles de communication
+- Familiarité avec au moins un langage de programmation
+
+## Matériel nécessaire
+- Ordinateur avec droits administrateur
+- Matériel spécifique fourni pour les TPs :
+  - Modules LoRa
+  - Devices Zigbee
+  - Capteurs IoT
+
