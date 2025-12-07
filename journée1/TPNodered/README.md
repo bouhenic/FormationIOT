@@ -90,9 +90,4 @@ Pour modifier l'apparence du dashboard, utiliser un node template avec le CSS su
 
 Ce projet est un TP éducatif. Pour toute suggestion d'amélioration, merci de contacter l'équipe pédagogique.
 
-## ⚖️ Licence
-
-Ce projet est distribué sous licence MIT, sauf mention contraire.
-
----
 *Crédit : Formation IoT (François Riotte)*
