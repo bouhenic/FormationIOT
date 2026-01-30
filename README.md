@@ -22,8 +22,9 @@ Formation complète sur l'IoT couvrant les protocoles de communication, les plat
   - Architecture et principes
   - Sécurité et topologie réseau
 - Travaux Pratiques :
-  - TP1 Zigbee : Système d'Irrigation Intelligent
-  - TP2 Zigbee : Contrôle de Lumières
+  - TP1 Zigbee : Contrôle de Lumières
+  - TP2 Zigbee : Création d'un capteur Zigbee
+  - TP3 Zigbee : Système d'Irrigation Intelligent
 
 ### Journée 3 : LoRaWAN
 - Technologie LoRa et protocole LoRaWAN
