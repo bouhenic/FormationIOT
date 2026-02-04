@@ -1,0 +1,852 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1277b77910f94723",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "1s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "74467a31f39678b4"
+            ]
+        ]
+    },
+    {
+        "id": "0643ad61d122ba42",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d78b6e6a444590e4",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "1m",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "ba59176ed9927305"
+            ]
+        ]
+    },
+    {
+        "id": "ea6a961e0808e158",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "74467a31f39678b4",
+        "type": "moment",
+        "z": "f6f2187d.f17ca8",
+        "name": "HH:mm:ss ",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Paris",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "HH:mm:ss ",
+        "locale": "en-FR",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "0643ad61d122ba42",
+                "7003ed145c4218ed"
+            ]
+        ]
+    },
+    {
+        "id": "ba59176ed9927305",
+        "type": "moment",
+        "z": "f6f2187d.f17ca8",
+        "name": "DD MMMM YYYY ",
+        "topic": "",
+        "input": "payload",
+        "inputType": "msg",
+        "inTz": "Europe/Paris",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "DD MMMM YYYY ",
+        "locale": "fr-FR",
+        "output": "payload",
+        "outputType": "msg",
+        "outTz": "Europe/Paris",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "ea6a961e0808e158",
+                "208eeb4a87f6964a"
+            ]
+        ]
+    },
+    {
+        "id": "7003ed145c4218ed",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Heure",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": "120",
+        "color": "#fffc41",
+        "wrapText": true,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "208eeb4a87f6964a",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "name": "Date",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "style": true,
+        "font": "",
+        "fontSize": "50",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 730,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "420eba141f7c5363",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "240",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 640,
+        "wires": [
+            [
+                "e2187fe1009d795e"
+            ]
+        ]
+    },
+    {
+        "id": "e2187fe1009d795e",
+        "type": "openweathermap",
+        "z": "f6f2187d.f17ca8",
+        "name": "Clichy",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Paris",
+        "country": "France",
+        "language": "fr",
+        "x": 330,
+        "y": 640,
+        "wires": [
+            [
+                "e16b2a1d63e33e03",
+                "5e676cba237a2fb9",
+                "17dc7b2691db62e5",
+                "b49fe6c31959c523",
+                "1062b3a5e307067a",
+                "4d73e0d5516b15b3"
+            ]
+        ]
+    },
+    {
+        "id": "e16b2a1d63e33e03",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "EXTRAIRE TEMPERATURE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 580,
+        "wires": [
+            [
+                "895f556a359bdf59"
+            ]
+        ]
+    },
+    {
+        "id": "5e676cba237a2fb9",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "EXTRAIRE HUMIDITÉ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 640,
+        "wires": [
+            [
+                "e8b25ce9fd222e04"
+            ]
+        ]
+    },
+    {
+        "id": "17dc7b2691db62e5",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "EXTRAIRE PRESSION",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pressure",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 700,
+        "wires": [
+            [
+                "5ccc442c2e8073d3"
+            ]
+        ]
+    },
+    {
+        "id": "895f556a359bdf59",
+        "type": "ui-gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "TEMPERATURE",
+        "group": "d34891adf3b13de3",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "4",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "TEMPERATURE",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "-20",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "10",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-20",
+        "max": "40",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 940,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8b25ce9fd222e04",
+        "type": "ui-gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "HUMIDITÉ",
+        "group": "d34891adf3b13de3",
+        "order": 7,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "4",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "HUMIDITÉ",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "80",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 930,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ccc442c2e8073d3",
+        "type": "ui-gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "PRESSION",
+        "group": "d34891adf3b13de3",
+        "order": 6,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "4",
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "PRESSION",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "Hpa",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "800",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "995",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1025",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1040",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "800",
+        "max": "1200",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 930,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eae1b90611089b62",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "CLICHY",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "50",
+        "color": "#77bb41",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 120,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f2956645d380fdcc",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 8,
+        "width": "6",
+        "height": "1",
+        "name": "LEVÉ SOLEIL",
+        "label": "Levé du soleil :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "40",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 120,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "cbe06eece3fc06eb",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 9,
+        "width": "6",
+        "height": "1",
+        "name": "LEVÉ",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "style": true,
+        "font": "",
+        "fontSize": "40",
+        "color": "#00a3d7",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 910,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "81fc1fcf25bfa61c",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 11,
+        "width": "6",
+        "height": "1",
+        "name": "COUCHÉ",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "style": true,
+        "font": "",
+        "fontSize": "40",
+        "color": "#00a3d7",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 920,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "2ec1f6a091ac34cc",
+        "type": "ui-text",
+        "z": "f6f2187d.f17ca8",
+        "group": "d34891adf3b13de3",
+        "order": 10,
+        "width": "6",
+        "height": "1",
+        "name": "COUCHÉ SOLEIL",
+        "label": "Couché du soleil",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "40",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 130,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "4b1ca8af222e54b3",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Conversion temps",
+        "func": "msg.payload = new Date(msg.payload * 1000)\n    .toLocaleTimeString(\"fr-FR\", { timeZone: \"Europe/Paris\" });\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 780,
+        "wires": [
+            [
+                "cbe06eece3fc06eb"
+            ]
+        ]
+    },
+    {
+        "id": "bf7369c8349c747b",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Conversion temps",
+        "func": "msg.payload = new Date(msg.payload * 1000)\n    .toLocaleTimeString(\"fr-FR\", { timeZone: \"Europe/Paris\" });\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 940,
+        "wires": [
+            [
+                "81fc1fcf25bfa61c"
+            ]
+        ]
+    },
+    {
+        "id": "b49fe6c31959c523",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "EXTRAIRE COUCHÉ SOLEIL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.sunset",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 940,
+        "wires": [
+            [
+                "bf7369c8349c747b"
+            ]
+        ]
+    },
+    {
+        "id": "1062b3a5e307067a",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "EXTRAIRE LEVÉ SOLEIL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.sunrise",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 780,
+        "wires": [
+            [
+                "4b1ca8af222e54b3"
+            ]
+        ]
+    },
+    {
+        "id": "4d73e0d5516b15b3",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "d34891adf3b13de3",
+        "type": "ui-group",
+        "name": "Météo",
+        "page": "2ca1596c89cea50a",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "2ca1596c89cea50a",
+        "type": "ui-page",
+        "name": "DASHBOARD",
+        "ui": "0c443d11770ca1cf",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "bc52b99135054047",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "0c443d11770ca1cf",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "bc52b99135054047",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#606060",
+            "primary": "#0094ce",
+            "bgPage": "#000000",
+            "groupBg": "#606060",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "d58316945d10524f",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-moment": "5.0.0",
+            "@flowfuse/node-red-dashboard": "1.30.1",
+            "node-red-node-openweathermap": "1.0.1"
+        }
+    }
+]
