@@ -41,12 +41,6 @@ Les principaux services :
 - **Gateway Bridge** écoute sur `1700/udp`
 - **Application Server** accessible via `http://localhost:8080`
 
-### 1.3 Importation des profils de devices
-
-```bash
-make import-lorawan-devices
-```
-
 ---
 
 ## 2. Configuration de la Passerelle
